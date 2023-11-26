@@ -11,8 +11,8 @@ export async function run(): Promise<void> {
     const input_directory = core.getInput('input_directory');
     const output_file = core.getInput('output_file');
 
-    const files = fs.readdirSync(input_directory).map((file) => path.join(input_directory, file));
-    const annotations = files.reduce((acc, file) => {
+    const files = fs.readdirSync(input_directory).map((file: string) => path.join(input_directory, file));
+    const annotations = files.reduce((acc: any[], file: string) => {
       const rawReport = fs.readFileSync(file, 'utf8');
       const parsedReport = JSON.parse(rawReport);
       return [...acc, ...parsedReport];
