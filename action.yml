@@ -1,6 +1,6 @@
-name: 'The name of your action here'
-description: 'Provide a description here'
-author: 'Your name or organization here'
+name: 'Merge ESLint Reports'
+description: 'Merges multiple ESLint report files into a single JSON file.'
+author: 'Ralph Schuler'
 
 # Add your action's branding here. This will appear on the GitHub Marketplace.
 branding:
@@ -9,15 +9,18 @@ branding:
 
 # Define your inputs here.
 inputs:
-  milliseconds:
-    description: 'Your input description here'
+  input_directory:
+    description: The directory containing the ESLint report files
     required: true
-    default: '1000'
+  output_file:
+    description: The file to write the merged report to
+    required: false
+    default: ./eslint_report.json
 
 # Define your outputs here.
 outputs:
-  time:
-    description: 'Your output description here'
+  output_file:
+    description: The file to write the merged report to
 
 runs:
   using: node20
